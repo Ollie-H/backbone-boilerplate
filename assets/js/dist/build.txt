@@ -1,0 +1,13 @@
+
+main.js
+----------------
+libs/jquery.1.9.js
+libs/underscore.js
+libs/backbone.js
+libs/text.js
+text!templates/template.html
+views/view.js
+routers/router.js
+app.js
+config/config.js
+main.js

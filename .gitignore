@@ -1,0 +1,7 @@
+syntax: glob
+cache/*
+system/*
+sql/*
+uploads/*
+node_modules/*
+.DS_Store
