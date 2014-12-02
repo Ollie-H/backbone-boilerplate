@@ -21,12 +21,19 @@ module.exports = function(grunt) {
 			}
 		},
 
+		/* Underscore templates */
 		jst: {
 		  compile: {
 		    options: {
-		      templateSettings: {
-		        interpolate : /\{\{(.+?)\}\}/g
-		      }
+				templateSettings: {
+					interpolate : /\{\{(.+?)\}\}/g
+				},
+				/* Wrap as AMD module */
+				amd: true,
+				processName: function(filepath) {
+					filepath = filepath.toLowerCase().split('/');
+					return filepath[filepath.length-1].replace('.html', '');
+				}
 		    },
 		    files: {
 		      "assets/js/templates/templates.js": ["assets/js/templates/*.html"]

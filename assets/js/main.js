@@ -17,6 +17,7 @@ requirejs.config({
     'underscore': 'libs/underscore',
     'text': 'libs/text',
     'router': 'routers/router',
+    'templates': 'templates/templates'
   },  
   shim: {
     'backbone': {

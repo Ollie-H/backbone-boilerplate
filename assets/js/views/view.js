@@ -11,7 +11,7 @@ define([
 		'jquery', 
 		'backbone',
 		'underscore',
-		'text!templates/template.html'],
+		'templates'],
 function($, Backbone, _, template){
 
 	var that,
@@ -19,12 +19,11 @@ function($, Backbone, _, template){
 
 		el : $("#main"),
 
-		template : template,
+		template : template.template(),
 
 		initialize: function(){
 
 			that = this;
-
 		},
 
 		render : function(){
