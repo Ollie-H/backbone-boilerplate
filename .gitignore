@@ -1,4 +1,5 @@
 syntax: glob
+.sass-cache
 cache/*
 system/*
 sql/*

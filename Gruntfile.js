@@ -47,27 +47,12 @@ module.exports = function(grunt) {
 	      }
 	    },
 
-		//less
-		less: {
-			development: {
-				options: {
-					paths: ["assets/styles"],
-					yuicompress: true,
-					compress: true
-				},
-				files: {
-					"assets/css/style.css": "assets/less/style.less"
-				}
-			},
-			production: {
-				options: {
-					paths: ["assets/styles"],
-					yuicompress: true,
-					compress: true
-				},
-				files: {
-					"assets/css/style.css": "assets/less/style.less"
-				}
+		//scss
+		sass: {
+			dist: {
+			  files: {
+			    'assets/css/style.css': 'assets/css/scss/style.scss'
+			  }
 			}
 		},
 
@@ -86,8 +71,8 @@ module.exports = function(grunt) {
 		//watch
 		watch: {
 			styles: {
-				files: ['assets/less/*.less', 'assets/less/**/*.less'],
-				tasks: ['less']
+				files: ['assets/scss/*.scss', 'assets/scss/**/*.scss'],
+				tasks: ['sass']
 			},
 			script: {
 				files: ['assets/js/*.js', 'assets/js/**/*.js', '!assets/js/dist/*.js', '!assets/js/dist/**/*.js'],
@@ -125,9 +110,9 @@ module.exports = function(grunt) {
 
   //load modules
   grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-sass');
   // grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-requirejs');
   grunt.loadNpmTasks('grunt-contrib-imagemin');
@@ -135,12 +120,12 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jst');
   
   //default task 
-  grunt.registerTask('default', ['jshint', 'jst', 'requirejs', 'less', 'autoprefixer']);
+  grunt.registerTask('default', ['jshint', 'jst', 'requirejs', 'sass', 'autoprefixer']);
   grunt.registerTask('prefix', ['autoprefixer']);
   grunt.registerTask('images', ['imagemin']);
 
   //other tasks 
-  grunt.registerTask('styles', 'less');
+  grunt.registerTask('styles', 'sass');
   grunt.registerTask('test', 'jshint');
 
 };

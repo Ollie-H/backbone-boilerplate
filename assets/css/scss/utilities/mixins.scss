@@ -1,0 +1,38 @@
+//	Custom Grids - Set layout grid system
+//	@include customGrid(1,4);
+
+@mixin customGrid($item, $parent, $grid-margin: $default-layout-margin, $isLast : false){
+  
+	$w: 100% - ($grid-margin * ($parent - 1));
+	$m: ($w / $parent * $item) + ($grid-margin * ($item - 1));
+	float: left;
+	width: $m;
+	margin-right: $grid-margin;		
+
+	@if $isLast == true {
+		margin-right: 0;
+	}
+  
+}
+
+// Custom Grid Push - Push custom grid elements
+// @include customGridPush(2,4);
+
+@mixin customGridPush($item, $parent, $grid-margin: $default-layout-margin){
+  
+	$w: 100% - ($grid-margin * ($parent - 1));
+	$m: ($w / $parent * $item) + ($grid-margin * ($item - 1));
+		float: left;
+	margin-left: $m+$grid-margin;
+  
+}
+
+//	Convert px to REM and set px as fallback
+
+@mixin pxToRem($size) {
+
+  font-size: $size;
+  font-size: ($size / $base-font-size) * 1rem;
+  line-height: ceil($size / $base-line-height ) * ($base-line-height / $size);
+
+}
