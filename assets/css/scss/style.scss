@@ -13,3 +13,10 @@
 @import 'utilities/functions';
 @import 'utilities/mixins';
 
+@import 'objects/base';
+@import 'objects/buttons';
+@import 'objects/typography';
+
+
+@import 'modules/page';
+@import 'modules/welcome';

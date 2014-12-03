@@ -10,18 +10,17 @@
 define([
 	'jquery',
 	'backbone',
-	'marionette',
 	'underscore'],
 function($, Backbone, _){
 
 	var that,
 	Model = Backbone.Model.extend({
-		initialize: function(){
-		},
-		defaults : {
-		}
-	});
-	
+		urlRoot : '?step=',
+        defaults: {},
+        initialize: function(){
+        }
+    });
+
 	return Model;
 
 });

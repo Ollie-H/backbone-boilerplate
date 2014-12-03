@@ -13,6 +13,7 @@ requirejs.config({
   paths: {
     'config': 'config/config',
     'jquery': 'libs/jquery.1.9',
+    'cookies': 'libs/jquery.cookie',
     'backbone': 'libs/backbone',
     'marionette' : 'libs/marionette',
     'underscore': 'libs/underscore',
@@ -43,7 +44,7 @@ require([
   'app',
   'config',
 ], function(App, config){
-  
+
   // Set config to global variable
   window.config = config;
   App.initialize();

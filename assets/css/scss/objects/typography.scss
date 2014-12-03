@@ -1,0 +1,42 @@
+/* Set font size to 62.5% = 10px for base styles - used for REM units */
+html{
+	font-size: 62.5%;
+}
+
+body{
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+	@include pxToRem(16px);
+	margin: 0;
+	padding: 0;	
+}
+
+a{
+	text-decoration: none;
+	color: inherit;
+
+		&:active,
+		&:focus,
+		&:visited{
+			text-decoration: none;
+		}
+
+		&.underline,
+		&:hover{
+			text-decoration: underline;
+		}
+}
+
+.large{
+	@include pxToRem(20px);
+}
+
+.heading,
+%heading{
+	font-family: proxima-nova;
+}
+
+.standard,
+%standard{
+	font-family: Roboto-Regular;
+}

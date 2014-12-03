@@ -8,6 +8,7 @@ module.exports = {
       name: 'main',
       include: [
         'jquery',
+        'cokies',
         'backbone',
         'marrionette',
         'underscore',

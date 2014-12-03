@@ -28,8 +28,8 @@ module.exports = function(grunt) {
 				/* Wrap as AMD module */
 				amd: true,
 				processName: function(filepath) {
-					filepath = filepath.toLowerCase().split('/');
-					return filepath[filepath.length-1].replace('.html', '');
+					filepath = filepath.split('/');
+					return filepath[filepath.length-1].replace('Template.html', '');
 				}
 		    },
 		    files: {
@@ -68,11 +68,11 @@ module.exports = function(grunt) {
 		//watch
 		watch: {
 			styles: {
-				files: ['assets/scss/*.scss', 'assets/scss/**/*.scss'],
+				files: ['assets/css/scss/*.scss', 'assets/css/scss/**/*.scss'],
 				tasks: ['sass']
 			},
 			script: {
-				files: ['assets/js/*.js', 'assets/js/**/*.js', '!assets/js/dist/*.js', '!assets/js/dist/**/*.js'],
+				files: ['assets/js/templates/*.html', 'assets/js/*.js', 'assets/js/**/*.js', '!assets/js/dist/*.js', '!assets/js/dist/**/*.js'],
 				tasks: ['jshint','jst', 'requirejs']
 			},
 			images: {

@@ -69,5 +69,116 @@ img {
 /*************************************************************************
 	Variables
 *************************************************************************/
+/* Chrome fix for known bug on google font loads */
+/* https://code.google.com/p/chromium/issues/detail?id=336476#c40 */
+body {
+  -webkit-animation-delay: 0.1s;
+  -webkit-animation-name: fontfix;
+  -webkit-animation-duration: 0.1s;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-timing-function: linear;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  overflow: hidden; }
+
+.btn {
+  font-size: 20px;
+  font-size: 2rem;
+  line-height: 1.04;
+  padding: 40px;
+  display: inline-block;
+  outline: 0;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  color: #fff;
+  text-align: center; }
+
+/* Set font size to 62.5% = 10px for base styles - used for REM units */
+html {
+  font-size: 62.5%; }
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  font-size: 1.6rem;
+  line-height: 1;
+  margin: 0;
+  padding: 0; }
+
+a {
+  text-decoration: none;
+  color: inherit; }
+  a:active, a:focus, a:visited {
+    text-decoration: none; }
+  a.underline, a:hover {
+    text-decoration: underline; }
+
+.large {
+  font-size: 20px;
+  font-size: 2rem;
+  line-height: 1.04; }
+
+.heading,
+.welcome__header {
+  font-family: proxima-nova; }
+
+.standard {
+  font-family: Roboto-Regular; }
+
+.page {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  right: 0;
+  padding: 20px; }
+
+.page__inner,
+.page__inner--welcome {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: center center; }
+
+.page__inner--welcome {
+  background-image: url("../images/optimized/welcome-bg.jpg"); }
+
+.welcome {
+  position: relative;
+  float: left;
+  width: 41.71429%;
+  margin-right: 2%;
+  margin-right: 0;
+  float: left;
+  margin-left: 29.14286%;
+  padding: 150px 0; }
+
+.welcome__logo {
+  text-align: center;
+  margin: 0 0 50px 0; }
+  .welcome__logo img {
+    display: inline; }
+
+.welcome__header {
+  font-size: 100px;
+  font-size: 10rem;
+  line-height: 1.008;
+  text-transform: uppercase;
+  color: #FFF;
+  padding: 0 100px;
+  text-align: center; }
+
+.welcome__copy {
+  text-align: center;
+  color: #FFF;
+  padding: 20px 15% 30px 15%; }
+  .welcome__copy p {
+    margin: 0 0 30px 0; }
+
+.welcome__cta {
+  text-align: center;
+  width: 100%; }
 
 /*# sourceMappingURL=style.css.map */

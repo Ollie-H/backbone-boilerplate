@@ -2,4 +2,13 @@
 
 .btn{
 	
-}
+	@include pxToRem(20px);
+	padding: 40px;
+	display: inline-block;
+	outline: 0;
+	border: 1px solid #fff;
+	border-radius: 5px;
+	color:#fff;
+	text-align: center;
+
+} 

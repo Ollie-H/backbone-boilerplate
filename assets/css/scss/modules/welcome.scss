@@ -1,0 +1,38 @@
+.welcome{
+	position: relative;
+	@include customGrid(6,14,true);
+	@include customGridPush(4,14);
+	padding: 150px 0;
+}
+
+.welcome__logo{
+	text-align: center;
+	margin: 0 0 50px 0;
+		img{
+			display: inline;
+		}
+}
+
+.welcome__header{
+	@extend %heading;
+	@include pxToRem(100px);
+	text-transform: uppercase;
+	color: #FFF;
+	padding: 0 100px;
+	text-align: center;
+}
+
+.welcome__copy{
+	text-align: center;
+	color: #FFF;
+	padding: 20px 15% 30px 15%;
+
+		p{
+			margin: 0 0 30px 0;
+		}
+}
+
+.welcome__cta{
+	text-align: center;
+	width: 100%;
+}

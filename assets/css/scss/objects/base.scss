@@ -1,0 +1,14 @@
+// Buttons
+
+/* Chrome fix for known bug on google font loads */
+/* https://code.google.com/p/chromium/issues/detail?id=336476#c40 */
+body {
+    -webkit-animation-delay: 0.1s;
+    -webkit-animation-name: fontfix;
+    -webkit-animation-duration: 0.1s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: linear;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    overflow: hidden;
+}

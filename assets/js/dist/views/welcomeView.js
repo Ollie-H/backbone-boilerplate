@@ -1,5 +1,5 @@
 /**
-*   @package        View.js
+*   @package        welcomeView.js
 *   @subpackage     Javascript
 *   @author         Ollie Husband
 *   @copyright      Copyright 2014, Saatchi & Saatchi.
@@ -12,8 +12,9 @@ define([
 		'underscore',
 		'backbone',
 		'marionette',
-		'templates'],
-function($, _, Backbone, Marionette, template){
+		'templates',
+
+], function($, _, Backbone, Marionette, template, Model){
 
 	var that,
 	View = Backbone.View.extend({
@@ -26,8 +27,7 @@ function($, _, Backbone, Marionette, template){
 
 		render : function(){
 
-			that.$el.html(that.template.template(that.model));
-
+			that.$el.html(that.template.welcome());
 		},
 
 		events: {

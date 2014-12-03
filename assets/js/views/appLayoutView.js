@@ -1,5 +1,5 @@
 /**
-*   @package        View.js
+*   @package        AppLayoutView.js
 *   @subpackage     Javascript
 *   @author         Ollie Husband
 *   @copyright      Copyright 2014, Saatchi & Saatchi.
@@ -8,24 +8,24 @@
 ************************************************************************************************************************ **/
 
 define([
-		'jquery', 
+		'jquery',
 		'underscore',
 		'backbone',
   		'marionette',
-  		'templates'],
-function($, _, Backbone, Marionette, template){
+  		'templates',
+], function($, _, Backbone, Marionette, template){
 
 	var that,
 		AppLayoutView = Backbone.Marionette.LayoutView.extend({
 
 			el: "#application",
 
-			template: template.applayouttemplate(),
+			template: template.appLayout(),
 
 			regions: {
 				header: "#header",
-				mains: "#main",
-				foooter: "#footer"
+				mains:  "#main",
+				footer: "#footer"
 			},
 
 			initialize: function(){
@@ -35,6 +35,7 @@ function($, _, Backbone, Marionette, template){
 			render: function(){
 
 				that.$el.html(that.template);
+
 			}
 
 		});

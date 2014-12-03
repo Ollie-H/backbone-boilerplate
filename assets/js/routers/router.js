@@ -8,44 +8,76 @@
 ************************************************************************************************************************ **/
 
 define([
+
 	'jquery',
+	'cookies',
 	'underscore',
 	'backbone',
 	'marionette',
+	'models/uiModel',
 	'views/appLayoutView',
-	'views/view'],
+	'views/headerView',
+	'views/footerView',
+	'views/welcomeView',
+	'views/stepOneView',
 
-function($, _, Backbone, Marionette, AppLayoutView, View){
+], function($, cookies, _, Backbone, Marionette, UiModel, AppLayoutView, Header, Footer, WelcomeView, StepOne){
 
-	var appLayoutView = new AppLayoutView(),
+	var that,
+		cachedUi = null,
+		appLayoutView = new AppLayoutView(),
 		application;
-
+ 
 	appLayoutView.render();
 
 	var	Router = Backbone.Marionette.AppRouter.extend({
 		initialize: function(e){
+			that = this;
+			// Set application locally
 			application = e;
 		},
+		getUi: function(){
+
+			var promise = cachedUi;
+		    if (!promise) {
+		        promise = new UiModel().fetch({
+		        	success: function(resp){
+		        		cachedUi = resp; 
+		        	}
+		        });
+		    }
+		    return promise;
+		},
 		routes: {
-			'': 'home',
-			'next' : 'test'
+			'': 'welcome',
+			'stepOne' : 'stepOne'
 		},
-		'home' : function(){
-			var view = new View();
-			view.model = {
-				test : 'yesy'
-			};
-  			appLayoutView.mains.show(view);
+		'welcome' : function(){
+
+			$.when(that.getUi()).then(function(resp){
+				appLayoutView.mains.show(new WelcomeView({ui : resp}));
+	  			appLayoutView.header.show(new Header());
+		    	appLayoutView.footer.show(new Footer());
+		    });
+
 		},
-		test: function(){
-			var view = new View();
-			view.model = {
-				test : 'test'
-			};
-  			appLayoutView.mains.show(view);
+		stepOne: function(){
+
+			$.when(that.getUi()).then(function(resp){
+				appLayoutView.mains.show( new StepOne({ui : resp}) );
+	  			appLayoutView.header.show(new Header());
+		    	appLayoutView.footer.show(new Footer());
+		    });
+			
+
 		}
 
 	});
 
 	return new Router;
 });
+
+
+
+
+

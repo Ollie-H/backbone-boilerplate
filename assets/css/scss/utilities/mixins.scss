@@ -1,13 +1,13 @@
 //	Custom Grids - Set layout grid system
 //	@include customGrid(1,4);
 
-@mixin customGrid($item, $parent, $grid-margin: $default-layout-margin, $isLast : false){
+@mixin customGrid($item, $parent, $isLast : false){
   
-	$w: 100% - ($grid-margin * ($parent - 1));
-	$m: ($w / $parent * $item) + ($grid-margin * ($item - 1));
+	$w: 100% - ($default-layout-margin * ($parent - 1));
+	$m: ($w / $parent * $item) + ($default-layout-margin * ($item - 1));
 	float: left;
 	width: $m;
-	margin-right: $grid-margin;		
+	margin-right: $default-layout-margin;		
 
 	@if $isLast == true {
 		margin-right: 0;
@@ -35,4 +35,11 @@
   font-size: ($size / $base-font-size) * 1rem;
   line-height: ceil($size / $base-line-height ) * ($base-line-height / $size);
 
+}
+
+@mixin fill(){
+	left:0;
+	bottom:0;
+	top: 0;
+	right: 0;
 }
