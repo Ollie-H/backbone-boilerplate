@@ -25,9 +25,6 @@ module.exports = function(grunt) {
 		jst: {
 		  compile: {
 		    options: {
-				templateSettings: {
-					interpolate : /\{\{(.+?)\}\}/g
-				},
 				/* Wrap as AMD module */
 				amd: true,
 				processName: function(filepath) {
@@ -125,6 +122,7 @@ module.exports = function(grunt) {
   grunt.registerTask('images', ['imagemin']);
 
   //other tasks 
+  grunt.registerTask('templates', 'jst');
   grunt.registerTask('styles', 'sass');
   grunt.registerTask('test', 'jshint');
 

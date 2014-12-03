@@ -14,6 +14,7 @@ requirejs.config({
     'config': 'config/config',
     'jquery': 'libs/jquery.1.9',
     'backbone': 'libs/backbone',
+    'marionette' : 'libs/marionette',
     'underscore': 'libs/underscore',
     'text': 'libs/text',
     'router': 'routers/router',
@@ -23,6 +24,10 @@ requirejs.config({
     'backbone': {
       'deps': ['jquery', 'underscore'],
       'exports': 'Backbone'
+    },
+    "marionette":{
+        "deps":["underscore", "backbone", "jquery"],
+        "exports": "Marionette"
     },
     'text' : {
       'deps' : ['backbone']
@@ -38,8 +43,9 @@ require([
   'app',
   'config',
 ], function(App, config){
+  
   // Set config to global variable
   window.config = config;
-  // Initialise app
   App.initialize();
+
 });

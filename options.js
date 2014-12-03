@@ -9,6 +9,7 @@ module.exports = {
       include: [
         'jquery',
         'backbone',
+        'marrionette',
         'underscore',
         'text',
         'router'

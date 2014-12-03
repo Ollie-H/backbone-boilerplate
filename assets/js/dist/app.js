@@ -7,4 +7,24 @@
 *
 ************************************************************************************************************************ **/
 
-define(["jquery","underscore","backbone","router"],function(e,t,n,r){var i=function(){r.initialize(),n.history.start()};return{initialize:i}});
+define([
+  'jquery',
+  'underscore',
+  'backbone',
+  'marionette',
+  'router'
+], function($, _, Backbone, Marionette, Router){
+
+  var App = new Backbone.Marionette.Application();
+
+  /// Add initialiser
+  var initialize = function () {
+      Router.initialize(App);
+      Backbone.history.start();
+  };
+
+  return {
+    initialize : initialize
+  }
+
+});

@@ -7,4 +7,16 @@
 *
 ************************************************************************************************************************ **/
 
-define(["jquery","underscore","backbone","router"],function(e,t,n,r){return{container:".main"}});
+define([
+  'jquery',
+  'underscore',
+  'backbone',
+  'router', 
+], function($, _, Backbone, Router){
+
+	return {
+		/* Main container identifier */
+		container : ".main"
+	};
+
+});

@@ -16,12 +16,12 @@
 	<link rel="stylesheet" href="/assets/css/style.css">
 
 	<script src="/assets/js/libs/modernizr.js"></script>
-	<script data-main="http://local.grad.com:8888/assets/js/main" src="http://local.grad.com:8888/assets/js/libs/require.js"></script>
+	<script data-main="http://local.grad.com/assets/js/main" src="http://local.grad.com/assets/js/libs/require.js"></script>
 
 </head>
 <body>
 
-	<main role="main" id="main"></main>
+	<div id="application"></div>
 
 </body>
 </html>

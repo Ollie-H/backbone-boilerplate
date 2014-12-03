@@ -9,27 +9,24 @@
 
 define([
 		'jquery', 
-		'backbone',
 		'underscore',
+		'backbone',
+		'marionette',
 		'templates'],
-function($, Backbone, _, template){
+function($, _, Backbone, Marionette, template){
 
 	var that,
 	View = Backbone.View.extend({
 
-		el : $("#main"),
+		template: template,
 
-		template : template.template(),
-
-		initialize: function(){
-
+		initialize: function(e){
 			that = this;
 		},
 
 		render : function(){
 
-			var template = _.template( that.template );
-			that.$el.html(template);
+			that.$el.html(that.template.template(that.model));
 
 		},
 

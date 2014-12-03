@@ -11,32 +11,34 @@ define([
 		'jquery', 
 		'underscore',
 		'backbone',
-		'marionette',
-		'templates'],
+  		'marionette',
+  		'templates'],
 function($, _, Backbone, Marionette, template){
 
 	var that,
-	View = Backbone.View.extend({
+		AppLayoutView = Backbone.Marionette.LayoutView.extend({
 
-		initialize: function(e){
-			console.log(e);
-			that = this;
-			this.render();
-		},
+			el: "#application",
 
-		render : function(){
+			template: template.applayouttemplate(),
 
-			var html = _.template(template.template());
-			that.$el.html(html);
+			regions: {
+				header: "#header",
+				mains: "#main",
+				foooter: "#footer"
+			},
 
-		},
+			initialize: function(){
+				that = this;
+			},
 
-		events: {
-	     	/* Events go in here */
-	    }
+			render: function(){
 
-	});
+				that.$el.html(that.template);
+			}
 
-	return View;
+		});
+
+	return AppLayoutView;
 
 });

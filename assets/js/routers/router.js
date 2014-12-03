@@ -9,22 +9,40 @@
 
 define([
 	'jquery',
-	'backbone', 
 	'underscore',
+	'backbone',
+	'marionette',
+	'views/appLayoutView',
 	'views/view'],
 
-function($, Backbone, _, View){
+function($, _, Backbone, Marionette, AppLayoutView, View){
 
-	var Router = Backbone.Router.extend({
+	var appLayoutView = new AppLayoutView(),
+		application;
 
+	appLayoutView.render();
+
+	var	Router = Backbone.Marionette.AppRouter.extend({
+		initialize: function(e){
+			application = e;
+		},
 		routes: {
 			'': 'home',
+			'next' : 'test'
 		},
 		'home' : function(){
-
 			var view = new View();
-  			view.render();
-
+			view.model = {
+				test : 'yesy'
+			};
+  			appLayoutView.mains.show(view);
+		},
+		test: function(){
+			var view = new View();
+			view.model = {
+				test : 'test'
+			};
+  			appLayoutView.mains.show(view);
 		}
 
 	});

@@ -11,21 +11,20 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'router', 
-], function($, _, Backbone, Router){
+  'marionette',
+  'router'
+], function($, _, Backbone, Marionette, Router){
 
-  var initialize = function(){
+  var App = new Backbone.Marionette.Application();
 
-    // Pass in our Router module and call it's initialize function
-    Router.initialize();
-
-    // without History API 
-    Backbone.history.start(); 
-
+  /// Add initialiser
+  var initialize = function () {
+      Router.initialize(App);
+      Backbone.history.start();
   };
 
   return {
-    initialize: initialize
-  };
+    initialize : initialize
+  }
 
 });

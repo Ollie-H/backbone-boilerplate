@@ -7,4 +7,36 @@
 *
 ************************************************************************************************************************ **/
 
-define(["jquery","backbone","underscore","views/view"],function(e,t,n,r){var i=t.Router.extend({routes:{"":"home"},home:function(){var e=new r;e.render()}});return new i});
+define([
+	'jquery',
+	'underscore',
+	'backbone',
+	'marionette',
+	'views/appLayoutView',
+	'views/view'],
+
+function($, _, Backbone, Marionette, AppLayoutView, View){
+
+	var appLayoutView = new AppLayoutView(),
+		application;
+
+	appLayoutView.render();
+
+	var	Router = Backbone.Marionette.AppRouter.extend({
+		initialize: function(e){
+			application = e;
+		},
+		routes: {
+			'': 'home',
+		},
+		'home' : function(){
+
+			new View();
+  			// appLayoutView.mains.show();
+
+		}
+
+	});
+
+	return new Router;
+});

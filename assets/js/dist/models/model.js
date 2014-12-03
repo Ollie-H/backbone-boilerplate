@@ -7,4 +7,21 @@
 *
 ************************************************************************************************************************ **/
 
-define(["jquery","backbone","underscore"],function(e,t,n){var r,i=t.Model.extend({initialize:function(){},defaults:{}});return i});
+define([
+	'jquery',
+	'backbone',
+	'marionette',
+	'underscore'],
+function($, Backbone, _){
+
+	var that,
+	Model = Backbone.Model.extend({
+		initialize: function(){
+		},
+		defaults : {
+		}
+	});
+	
+	return Model;
+
+});

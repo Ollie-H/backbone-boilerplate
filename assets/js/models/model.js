@@ -10,6 +10,7 @@
 define([
 	'jquery',
 	'backbone',
+	'marionette',
 	'underscore'],
 function($, Backbone, _){
 
